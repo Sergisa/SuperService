@@ -1,10 +1,11 @@
 from application import Application
 from api import get_applications, reject
+from status import ENROLLED, Status
 
 items_per_page = 200
 
 
-def iterate_over_applications(func, status=None, search_fullname=None):
+def iterate_over_applications(func, status: Status = None, search_fullname=None):
     pages_count = get_applications(status=status, search_fullname=search_fullname)['paginator']['count_page']
     for page in range(1, pages_count + 1):
         for application in get_applications(status=status, search_fullname=search_fullname, page=page)['data']:
@@ -46,4 +47,4 @@ def echo_duty(application):
     print(application.entrant_fullname + application.name_status)
 
 
-iterate_over_applications(echo_duty, search_fullname='Логачев')
+iterate_over_applications(echo_duty, status=ENROLLED)
