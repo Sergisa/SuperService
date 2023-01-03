@@ -21,6 +21,7 @@ CALL_OFF: Status = Status({  # Отзыв
     'notification': None,
     'status_comment': None
 }, 15)
+
 REJECT = Status({  # Отклонено
     'code': "service_denied",
     'notification': None,
@@ -56,3 +57,19 @@ OUT_COMPETITION = Status({  # Не прошло по конкурсу
     'notification': None,
     'status_comment': None
 }, 10)
+
+IN_ORDER = Status({  # Включено в приказ на зачисление
+    "code": "in_order",
+    'notification': None,
+    'status_comment': None
+}, 11)
+GOT = Status({  # Получено вузом
+    "code": "new_cheking",
+    'notification': None,
+    'status_comment': None
+}, 2)
+REFUSED_ENROLL = Status({  # Отказ от зачисления
+    "code": "app_edit",
+    'notification': None,
+    'status_comment': None
+}, 14)
