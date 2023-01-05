@@ -1,6 +1,6 @@
 from application import Application
 from api import get_applications, reject
-from status import ENROLLED, Status
+from status import *
 
 items_per_page = 200
 
@@ -44,7 +44,7 @@ uid_epgu: 1998865804 // идентификатор заявления из ан�
 
 
 def echo_duty(application):
-    print(application.entrant_fullname + application.name_status)
+    print("{} {} {}".format(application.comment, application.entrant_fullname, application.name_status))
 
 
 iterate_over_applications(echo_duty, status=ENROLLED)
